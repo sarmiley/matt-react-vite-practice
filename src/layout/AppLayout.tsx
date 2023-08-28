@@ -1,3 +1,5 @@
+import Footer from "@/layout/Footer"
+import Header from "@/layout/Header"
 import { selectIsLogin } from "@/store/slices/appSlice"
 import useAppSelector from "@/utils/hook/useAppSelector"
 import { PropsWithChildren } from "react"
@@ -20,9 +22,9 @@ export const AppLayout = ({
 
   return (
     <>
-      <div className="header header--app">Header</div>
+      <Header />
       <main className="content">{children}</main>
-      <div className="footer footer--app">Footer</div>
+      <Footer />
     </>
   )
 }

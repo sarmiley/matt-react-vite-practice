@@ -41,6 +41,7 @@
     "@types/redux-logger": "^3.0.9",
     "date-fns": "^2.30.0",
     "formik": "^2.4.3",
+    "fp-ts": "^2.16.1",
     "i18next": "^23.2.11",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",

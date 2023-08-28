@@ -7,7 +7,10 @@ import { CommonRoute } from "@/layout/CommonRoute"
 const PublicLayout = lazy(() => import("@/views/Public"))
 const DevLayout = lazy(() => import("@/views/Dev"))
 const HomeLayout = lazy(() => import("@/views/Home"))
-const Landing = lazy(() => import("@/views/Public/Landing"))
+
+import PracticeInput from "@/views/Public/PracticeInput"
+import Home from "@/views/Public/Home"
+import PracticeMonad from "@/views/Public/PracticeMonad"
 
 // 若 component 尚未載入完成，則顯示 ...
 const Suspense = (component: JSX.Element) => (
@@ -26,17 +29,31 @@ export const router = createBrowserRouter([
         element: Suspense(<PublicLayout />),
         children: [
           {
+            id: "home",
             index: true,
+            element: Suspense(
+              <CommonRoute title="__documentTitleLanding" children={<Home />} />
+            ),
+          },
+          {
+            id: "Practice Input",
+            path: "practice1",
             element: Suspense(
               <CommonRoute
                 title="__documentTitleLanding"
-                children={<Landing />}
+                children={<PracticeInput />}
               />
             ),
           },
           {
-            path: "about",
-            element: <div>about</div>,
+            id: "Practice Monad",
+            path: "practiceMonad",
+            element: Suspense(
+              <CommonRoute
+                title="__documentTitleLanding"
+                children={<PracticeMonad />}
+              />
+            ),
           },
         ],
       },
@@ -52,6 +69,11 @@ export const router = createBrowserRouter([
           { path: "profile", element: <div>profile</div> },
           { path: "*", element: <Navigate to="profile" replace /> },
         ],
+      },
+      {
+        id: "about",
+        path: "about",
+        element: <div>about</div>,
       },
 
       /* [開發專用頁面區] */
