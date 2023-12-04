@@ -9,10 +9,10 @@ const Recursion = () => {
       const newArr = [...arr]
       if (newArr.length <= index) return newArr
       const num = Math.floor(Math.random() * 32) + 1
-      newArr.includes(num)
-        ? addNumNoSame(newArr, index)
-        : newArr.fill(num, index, index + 1)
-      return addNumNoSame(newArr, index + 1)
+      if (newArr.includes(num))
+        return addNumNoSame(newArr, index).sort((a, b) => a - b)
+      newArr.fill(num, index, index + 1).sort((a, b) => a - b)
+      return addNumNoSame(newArr, index + 1).sort((a, b) => a - b)
     },
     []
   )
