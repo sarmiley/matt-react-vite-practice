@@ -1,5 +1,8 @@
 import Footer from "@/layout/Footer"
 import Header from "@/layout/Header"
+import Navbar from "@/layout/Navbar"
+import AppContent from "@/layout/AppContent"
+
 import { selectIsLogin } from "@/store/slices/appSlice"
 import useAppSelector from "@/utils/hook/useAppSelector"
 import { PropsWithChildren } from "react"
@@ -21,10 +24,13 @@ export const AppLayout = ({
   }
 
   return (
-    <>
+    <div className="container mx-auto px-8 ">
       <Header />
-      <main className="content">{children}</main>
+      <div className="flex">
+        <Navbar />
+        <AppContent children={children} />
+      </div>
       <Footer />
-    </>
+    </div>
   )
 }

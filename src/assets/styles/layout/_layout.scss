@@ -10,3 +10,21 @@
   padding-bottom: $footer-height;
   // 以上勿動
 }
+
+.header {
+  &__app {
+    color: rgba(245, 245, 245, 1);
+    background-color: rgba(100, 149, 237, 0.5);
+  }
+}
+
+.navbar {
+  width: 200px;
+  height: 100vh;
+  background-color: rgba(240, 248, 255, 0.5);
+}
+
+.navbar a {
+  color: rgba(25, 25, 25, 0.5);
+  text-decoration-line: none;
+}
