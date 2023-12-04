@@ -28,7 +28,7 @@ export default function PracticeInput() {
   }
 
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto my-2">
       <div className="flex flex-col">
         {/* Radio 練習 */}
         <div className="h-48">

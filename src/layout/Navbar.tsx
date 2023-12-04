@@ -13,13 +13,11 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="navbar">
-      <ul>
+      <ul className="py-2 px-4">
         {practicesRoutes.map((item, index) => {
           return (
             <li key={index}>
-              <Link className="p-1 text-blue-500" to={item.path ?? "/"}>
-                {item.id}
-              </Link>
+              <Link to={item.path ?? "/"}>{item.id}</Link>
             </li>
           )
         })}

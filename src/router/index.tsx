@@ -11,6 +11,7 @@ const HomeLayout = lazy(() => import("@/views/Home"))
 import PracticeInput from "@/views/Public/PracticeInput"
 import Home from "@/views/Public/Home"
 import PracticeMonad from "@/views/Public/PracticeMonad"
+import Recursion from "@/views/Public/Recursion"
 
 // 若 component 尚未載入完成，則顯示 ...
 const Suspense = (component: JSX.Element) => (
@@ -31,36 +32,25 @@ export const router = createBrowserRouter([
           {
             id: "home",
             index: true,
-            element: Suspense(
-              <CommonRoute title="__documentTitleLanding" children={<Home />} />
-            ),
+            element: Suspense(<CommonRoute children={<Home />} />),
           },
           {
             id: "Practice Input",
             path: "practice1",
-            element: Suspense(
-              <CommonRoute
-                title="__documentTitleLanding"
-                children={<PracticeInput />}
-              />
-            ),
+            element: Suspense(<CommonRoute children={<PracticeInput />} />),
           },
           {
             id: "Practice Monad",
             path: "practiceMonad",
-            element: Suspense(
-              <CommonRoute
-                title="__documentTitleLanding"
-                children={<PracticeMonad />}
-              />
-            ),
+            element: Suspense(<CommonRoute children={<PracticeMonad />} />),
+          },
+          {
+            id: "Practice Recursion",
+            path: "Recursion",
+            element: Suspense(<CommonRoute children={<Recursion />} />),
           },
         ],
       },
-
-      /* [公開頁面區2 (layout: none)] */
-      { path: "login", element: <div>login</div> },
-
       /* [需登入畫面區 (layout: AppLayout)] */
       {
         path: "home",
