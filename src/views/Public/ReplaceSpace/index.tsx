@@ -1,10 +1,6 @@
-import { Button, Input } from "@mui/base"
-import {
-  MouseEventHandler,
-  PropsWithChildren,
-  useCallback,
-  useState,
-} from "react"
+import CustomButton from "@/components/CustomButton"
+import { Input } from "@mui/base"
+import { useCallback, useState } from "react"
 
 const ReplaceSpace = () => {
   const [input, setInput] = useState(" d e f a u l t  v a l u e ")
@@ -44,19 +40,6 @@ const ReplaceSpace = () => {
     [replaceAllSpace]
   )
 
-  const CustomBtn = ({
-    onClick,
-    ...prop
-  }: PropsWithChildren<{ onClick: MouseEventHandler<HTMLButtonElement> }>) => {
-    return (
-      <Button
-        onClick={onClick}
-        {...prop}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-      />
-    )
-  }
-
   return (
     <>
       <div className="mb-4">
@@ -82,21 +65,23 @@ const ReplaceSpace = () => {
       </div>
 
       <div className="btn-container">
-        <CustomBtn onClick={() => handleReplaceAllSpace(input, "before")}>
+        <CustomButton onClick={() => handleReplaceAllSpace(input, "before")}>
           濾前
-        </CustomBtn>
-        <CustomBtn onClick={() => handleReplaceAllSpace(input, "after")}>
+        </CustomButton>
+        <CustomButton onClick={() => handleReplaceAllSpace(input, "after")}>
           濾後
-        </CustomBtn>
-        <CustomBtn onClick={() => handleReplaceAllSpace(input, "beforeAfter")}>
+        </CustomButton>
+        <CustomButton
+          onClick={() => handleReplaceAllSpace(input, "beforeAfter")}
+        >
           濾前後
-        </CustomBtn>
-        <CustomBtn onClick={() => handleReplaceAllSpace(input, "middle")}>
+        </CustomButton>
+        <CustomButton onClick={() => handleReplaceAllSpace(input, "middle")}>
           濾中間
-        </CustomBtn>
-        <CustomBtn onClick={() => handleReplaceAllSpace(input, "all")}>
+        </CustomButton>
+        <CustomButton onClick={() => handleReplaceAllSpace(input, "all")}>
           濾全部
-        </CustomBtn>
+        </CustomButton>
       </div>
     </>
   )

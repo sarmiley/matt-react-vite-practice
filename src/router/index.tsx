@@ -10,9 +10,9 @@ const HomeLayout = lazy(() => import("@/views/Home"))
 
 import Home from "@/views/Public/Home"
 import PracticeInput from "@/views/Public/PracticeInput"
-import PracticeMonad from "@/views/Public/PracticeMonad"
 import Recursion from "@/views/Public/Recursion"
 import ReplaceSpace from "@/views/Public/ReplaceSpace"
+import Curry from "@/views/Public/curry"
 
 // 若 component 尚未載入完成，則顯示 ...
 const Suspense = (component: JSX.Element) => (
@@ -36,24 +36,29 @@ export const router = createBrowserRouter([
             element: Suspense(<CommonRoute children={<Home />} />),
           },
           {
-            id: "Practice Input",
+            id: "Input",
             path: "practice1",
             element: Suspense(<CommonRoute children={<PracticeInput />} />),
           },
+          // {
+          //   id: "Practice Monad",
+          //   path: "practiceMonad",
+          //   element: Suspense(<CommonRoute children={<PracticeMonad />} />),
+          // },
           {
-            id: "Practice Monad",
-            path: "practiceMonad",
-            element: Suspense(<CommonRoute children={<PracticeMonad />} />),
-          },
-          {
-            id: "Practice Recursion",
+            id: "Recursion",
             path: "Recursion",
             element: Suspense(<CommonRoute children={<Recursion />} />),
           },
           {
-            id: "Practice ReplaceSpace",
+            id: "ReplaceSpace",
             path: "ReplaceSpace",
             element: Suspense(<CommonRoute children={<ReplaceSpace />} />),
+          },
+          {
+            id: "curry",
+            path: "curry",
+            element: Suspense(<CommonRoute children={<Curry />} />),
           },
         ],
       },

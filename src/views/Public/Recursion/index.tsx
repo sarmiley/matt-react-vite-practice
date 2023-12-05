@@ -1,4 +1,4 @@
-import { Button } from "@mui/base/Button"
+import CustomButton from "@/components/CustomButton"
 import { useCallback, useState } from "react"
 
 const Recursion = () => {
@@ -48,12 +48,7 @@ const Recursion = () => {
         ]
       </div>
       <div>
-        <Button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handleClick}
-        >
-          產生
-        </Button>
+        <CustomButton onClick={handleClick}>產生</CustomButton>
       </div>
     </>
   )
