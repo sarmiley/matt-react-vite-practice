@@ -1,17 +1,18 @@
 import App from "@/App"
-import React, { lazy } from "react"
-import { Navigate, createBrowserRouter } from "react-router-dom"
 import { AppEnvEnum } from "@/enums/common"
 import { CommonRoute } from "@/layout/CommonRoute"
+import React, { lazy } from "react"
+import { Navigate, createBrowserRouter } from "react-router-dom"
 // 動態載入 component 達到 code splitting  效果，減少第一次載入頁面所需的 bundle size
 const PublicLayout = lazy(() => import("@/views/Public"))
 const DevLayout = lazy(() => import("@/views/Dev"))
 const HomeLayout = lazy(() => import("@/views/Home"))
 
-import PracticeInput from "@/views/Public/PracticeInput"
 import Home from "@/views/Public/Home"
+import PracticeInput from "@/views/Public/PracticeInput"
 import PracticeMonad from "@/views/Public/PracticeMonad"
 import Recursion from "@/views/Public/Recursion"
+import ReplaceSpace from "@/views/Public/ReplaceSpace"
 
 // 若 component 尚未載入完成，則顯示 ...
 const Suspense = (component: JSX.Element) => (
@@ -48,6 +49,11 @@ export const router = createBrowserRouter([
             id: "Practice Recursion",
             path: "Recursion",
             element: Suspense(<CommonRoute children={<Recursion />} />),
+          },
+          {
+            id: "Practice ReplaceSpace",
+            path: "ReplaceSpace",
+            element: Suspense(<CommonRoute children={<ReplaceSpace />} />),
           },
         ],
       },
